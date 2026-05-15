@@ -696,8 +696,12 @@ textarea{resize:vertical;min-height:96px}
           </a>
         </div>
       </div>
-      <form class="qform fi" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST" novalidate>
-        <input type="hidden" name="_subject" value="Homepage enquiry — northgridelectrical.com">
+      <form class="qform fi" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="883caf02-9a5d-4fda-9ab6-77a3703ac862">
+        <input type="hidden" name="from_name" value="NorthGrid Electrical Website">
+        <input type="hidden" name="redirect" value="https://northgridelectrical.com/thank-you.html">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="subject" value="New website enquiry — NorthGrid Electrical">
         <div class="frow">
           <div>
             <label for="fn">Full Name *</label>
