@@ -111,6 +111,17 @@ nav ul a[aria-current="page"]{color:#FFC72C;background:rgba(255,199,44,.1)}
 #mnav ul li:last-child a{border-bottom:none}
 @media(max-width:900px){nav{display:none}.hdr-phone{display:none}.burger{display:flex}}
 @media(max-width:480px){.btn-qhdr{display:none}}
+/* ── Services dropdown ── */
+.nav-dropdown{position:relative}
+.nav-dropdown>a{display:flex;align-items:center;gap:.28rem}
+.drop-arrow{font-size:.65rem;opacity:.7;transition:transform .2s;display:inline-block}
+.nav-dropdown:hover .drop-arrow,.nav-dropdown:focus-within .drop-arrow{transform:rotate(180deg)}
+.dropdown-menu{display:none;position:absolute;top:calc(100% + 6px);left:0;background:#081A2C;border-radius:8px;padding:.4rem 0;min-width:230px;box-shadow:0 8px 28px rgba(0,0,0,.35);z-index:200;border:1px solid rgba(255,255,255,.1);list-style:none}
+.nav-dropdown:hover .dropdown-menu,.nav-dropdown:focus-within .dropdown-menu{display:block}
+.dropdown-menu a{display:block;color:rgba(255,255,255,.82);text-decoration:none;padding:.55rem 1rem;font-size:.86rem;font-weight:500;white-space:nowrap;transition:color .2s,background .2s}
+.dropdown-menu a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.dropdown-menu a[aria-current="page"]{color:#FFC72C;background:rgba(255,199,44,.08)}
+.nav-dropdown:has(.dropdown-menu a[aria-current="page"])>a{color:#FFC72C;background:rgba(255,199,44,.1)}
 
 /* ════════════════════════
    HERO
@@ -244,6 +255,11 @@ section{padding:5rem 0}
 @media(max-width:700px){.wstrip-g{grid-template-columns:1fr}}
 
 /* ════════════════════════
+   QUICK LINKS
+════════════════════════ */
+#quick-links a:hover{color:#FFC72C}
+
+/* ════════════════════════
    MOBILE FLOAT CTAs
 ════════════════════════ */
 .mfloat{display:none;position:fixed;bottom:1.4rem;right:1.15rem;flex-direction:column;gap:.55rem;z-index:900}
@@ -265,8 +281,17 @@ section{padding:5rem 0}
       <a href="index.html" style="display:flex!important;align-items:center!important;gap:10px!important;text-decoration:none!important;"><img src="Logo.jpeg" alt="NorthGrid Electrical Logo" style="height:45px!important;width:auto!important;object-fit:contain!important;display:block!important;"><span style="display:inline!important;color:#ffffff!important;font-weight:700!important;font-size:18px!important;letter-spacing:-0.3px!important;visibility:visible!important;opacity:1!important;clip:auto!important;position:static!important;">NorthGrid Electrical</span></a>
       <nav aria-label="Main navigation">
         <ul>
-          <li><a href="services.html" aria-current="page">Services</a></li>
-          <li><a href="eicr-testing.html">EICR Testing</a></li>
+          <li class="nav-dropdown">
+            <a href="services.html">Services <span class="drop-arrow" aria-hidden="true">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="services.html" aria-current="page">All Services</a></li>
+              <li><a href="eicr-testing.html">EICR Testing</a></li>
+              <li><a href="commercial-installation.html">Commercial Installation</a></li>
+              <li><a href="compliance-inspections.html">Compliance &amp; Inspections</a></li>
+            </ul>
+          </li>
+          <li><a href="faqs.html">FAQs</a></li>
+          <li><a href="areas-we-serve.html">Areas We Serve</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -286,8 +311,12 @@ section{padding:5rem 0}
   <nav id="mnav" aria-label="Mobile navigation">
     <ul>
       <li><a href="index.html" class="mnl">Home</a></li>
-      <li><a href="services.html" class="mnl">Services</a></li>
+      <li><a href="services.html" class="mnl" aria-current="page">All Services</a></li>
       <li><a href="eicr-testing.html" class="mnl">EICR Testing</a></li>
+      <li><a href="commercial-installation.html" class="mnl">Commercial Installation</a></li>
+      <li><a href="compliance-inspections.html" class="mnl">Compliance &amp; Inspections</a></li>
+      <li><a href="faqs.html" class="mnl">FAQs</a></li>
+      <li><a href="areas-we-serve.html" class="mnl">Areas We Serve</a></li>
       <li><a href="about.html" class="mnl">About</a></li>
       <li><a href="contact.html" class="mnl">Get a Quote</a></li>
     </ul>
@@ -348,10 +377,16 @@ section{padding:5rem 0}
             </div>
           </div>
           <p class="svc-cat-desc">Our primary specialism. EICRs and compliance testing carried out to BS 7671 / 18th Edition — thorough, well-documented and built to pass scrutiny the first time. We serve landlords, housing associations, FM companies and commercial clients who need certificates that hold up under audit.</p>
-          <a href="eicr-testing.html" class="svc-cat-cta cta-yellow">
-            Learn More About EICRs
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <div style="display:flex;gap:.7rem;flex-wrap:wrap">
+            <a href="eicr-testing.html" class="svc-cat-cta cta-yellow">
+              EICR Testing
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="compliance-inspections.html" class="svc-cat-cta">
+              Compliance &amp; Inspections
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
         <div class="svc-cat-r">
           <p class="svc-list-label">Services included</p>
@@ -411,10 +446,16 @@ section{padding:5rem 0}
             </div>
           </div>
           <p class="svc-cat-desc">Structured for the organisations that need a contractor who fits into their workflows: FM companies, commercial landlords, industrial operators and aviation clients. Planned and reactive maintenance, three-phase work, trunking, containment, power distribution and airside compliance — documented to the standard your contracts require.</p>
-          <a href="contact.html" class="svc-cat-cta">
-            Get a Quote
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <div style="display:flex;gap:.7rem;flex-wrap:wrap">
+            <a href="commercial-installation.html" class="svc-cat-cta cta-yellow">
+              Commercial Installation
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="contact.html" class="svc-cat-cta">
+              Get a Quote
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
         <div class="svc-cat-r">
           <p class="svc-list-label">Services included</p>
@@ -432,6 +473,23 @@ section{padding:5rem 0}
         </div>
       </article>
 
+    </div>
+  </div>
+</section>
+
+<!-- ══ QUICK LINKS ══ -->
+<section id="quick-links" aria-label="Quick links" style="background:#0F2942;padding:2rem 0">
+  <div class="wrap">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1rem 2.5rem">
+      <a href="faqs.html" style="display:inline-flex;align-items:center;gap:.45rem;color:rgba(255,255,255,.82);text-decoration:none;font-size:.92rem;font-weight:600;transition:color .2s">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Got a question? Check our FAQ →
+      </a>
+      <span style="color:rgba(255,255,255,.2);font-size:1.2rem" aria-hidden="true">|</span>
+      <a href="areas-we-serve.html" style="display:inline-flex;align-items:center;gap:.45rem;color:rgba(255,255,255,.82);text-decoration:none;font-size:.92rem;font-weight:600;transition:color .2s">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        See where we work →
+      </a>
     </div>
   </div>
 </section>
